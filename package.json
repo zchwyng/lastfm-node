@@ -22,9 +22,6 @@
   "directories": {
     "test": "tests"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
   "devDependencies": {
     "gently": "^0.10.0"
   },

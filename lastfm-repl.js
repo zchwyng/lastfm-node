@@ -1,37 +1,36 @@
 var LastFmNode = require('./lib/lastfm').LastFmNode,
-    repl = require('repl'),
-    config = require('./config'),
-    _ = require('underscore');
+  repl = require('repl'),
+  config = require('./config');
 
-var echoHandler = function() {
-    _(arguments).each(function(arg) {
-        console.log(arg);
-    });
+var echoHandler = function () {
+  arguments.forEach(function (arg) {
+    console.log(arg);
+  });
 };
 
-var errorHandler = function(error) {
-    console.log('Error: ' + error.message);
+var errorHandler = function (error) {
+  console.log('Error: ' + error.message);
 };
 
-var quietHandler = function() { };
+var quietHandler = function () {};
 
 var _echoHandlers = {
-    error: errorHandler,
-    success: echoHandler,
-    lastPlayed: echoHandler,
-    nowPlaying: echoHandler,
-    scrobbled: echoHandler,
-    stoppedPlaying: echoHandler
+  error: errorHandler,
+  success: echoHandler,
+  lastPlayed: echoHandler,
+  nowPlaying: echoHandler,
+  scrobbled: echoHandler,
+  stoppedPlaying: echoHandler,
 };
 
 var _quietHandlers = {
-    error: errorHandler,
-    success: quietHandler,
-    lastPlayed: quietHandler,
-    nowPlaying: quietHandler,
-    scrobbled: quietHandler,
-    stoppedPlaying: quietHandler
-}
+  error: errorHandler,
+  success: quietHandler,
+  lastPlayed: quietHandler,
+  nowPlaying: quietHandler,
+  scrobbled: quietHandler,
+  stoppedPlaying: quietHandler,
+};
 
 var lastfm = new LastFmNode(config);
 
